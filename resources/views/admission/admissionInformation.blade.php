@@ -17,7 +17,7 @@
                     <b>ID</b> <a class="pull-right">00{{$findDataById->id}}</a>
                 </li>
                 <li class="list-group-item">
-                    <b>Class</b> <a class="pull-right">{{$findDataById->class}}</a>
+                    <b>Class</b> <a class="pull-right">{{$cls->class_name}}</a>
                 </li>
                 <li class="list-group-item">
                     <b>Phone No.</b> <a class="pull-right">{{$findDataById->contactNo}}</a>

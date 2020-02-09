@@ -8,6 +8,7 @@ use App\Students_log;
 
 
 use App\Admission;
+use App\Class_table;
 
 class admissionController extends Controller
 {
@@ -30,7 +31,8 @@ class admissionController extends Controller
      */
     public function create()
     {
-        return view('admission.admissionForm');
+        $cls = Class_table::get();
+        return view('admission.admissionForm')->with('cls',$cls);
     }
 
     /**
@@ -107,7 +109,8 @@ class admissionController extends Controller
     {
         if(Admission::find($id)){
             $findDataById = Admission::find($id);
-        return view('admission.admissionInformation')->with('findDataById',$findDataById);
+            $cls = Class_table::where('id',$findDataById->class)->first();
+            return view('admission.admissionInformation',compact(['findDataById','cls']));
         }else{return "No respective information availabe for ID = {$id}";}
     }
 
@@ -120,7 +123,8 @@ class admissionController extends Controller
     public function edit($id)
     {
         $getData = Admission::find($id);
-        return view('admission.editAdmissionInformation')->with('getData',$getData);
+        $cls = Class_table::get();
+        return view('admission.editAdmissionInformation',compact(['getData','cls']));
     }
 
     /**

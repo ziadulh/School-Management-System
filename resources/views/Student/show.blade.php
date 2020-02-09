@@ -18,7 +18,7 @@
                     <b>ID</b> <a class="pull-right">00{{$student->id}}</a>
                 </li>
                 <li class="list-group-item">
-                    <b>Class</b> <a class="pull-right">{{$student->id}}</a>
+                    <b>Class</b> <a class="pull-right">{{$cls->class_name}}</a>
                 </li>
                 <li class="list-group-item">
                     <b>Phone No.</b> <a class="pull-right">{{$student->contactNo}}</a>

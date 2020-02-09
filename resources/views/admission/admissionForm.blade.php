@@ -34,7 +34,11 @@
 
               <div class="form-group">
                 <label for="class">Class</label>
-                <input type="text" class="form-control" name="class" id="class">
+                <select class="form-control" id="class" name="class">
+                    @foreach ($cls as $cls)
+                    <option value = "{{$cls->id}}">{{$cls->class_name}}{{$cls->id}}</option>
+                    @endforeach
+                </select>
               </div>
 
               <div class="form-group">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Students_log;
+use App\Class_table;
 
 class studentController extends Controller
 {
@@ -49,7 +50,8 @@ class studentController extends Controller
     public function show($id)
     {
         $student = Student::find($id);
-        return view('Student.show',compact(['student']));
+        $cls = Class_table::where('id',$student->class)->first();
+        return view('Student.show',compact(['student','cls']));
     }
 
     /**
@@ -61,7 +63,8 @@ class studentController extends Controller
     public function edit($id)
     {
         $student = Student::find($id);
-        return view('Student.editStudent',compact(['student']));
+        $cls = Class_table::get();
+        return view('Student.editStudent',compact(['student','cls']));
     }
 
     /**

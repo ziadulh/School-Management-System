@@ -18,7 +18,7 @@ class CreateAdmissionsTable extends Migration
             $table->string('name');
             $table->string('father');
             $table->string('mother');
-            $table->string('class',20);
+            $table->tinyInteger('class',2);
             $table->string('email',40);
             $table->string('gender');
             $table->string('birthDate');

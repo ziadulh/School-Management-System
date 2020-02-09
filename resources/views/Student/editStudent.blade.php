@@ -35,7 +35,16 @@
 
                     <div class="form-group">
                         <label for="class">Class</label>
-                        <input type="" class="form-control" value="{{$student->class}}" name="class" id="class">
+                        <select class="form-control" id="class" name="class">
+                            @foreach ($cls as $cls)
+                                @if ($cls->id == $student->class)
+                                    <option selected value = "{{$cls->id}}">{{$cls->class_name}}</option>
+                                @else
+                                    <option value = "{{$cls->id}}">{{$cls->class_name}}</option>
+                                @endif
+
+                            @endforeach
+                        </select>
                     </div>
 
                       <div class="form-group">
