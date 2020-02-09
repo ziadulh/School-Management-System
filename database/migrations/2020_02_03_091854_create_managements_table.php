@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdmissionsTable extends Migration
+class CreateManagementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,18 @@ class CreateAdmissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admissions', function (Blueprint $table) {
+        Schema::create('managements', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('father');
             $table->string('mother');
-            $table->string('class',20);
-            $table->string('email',40);
             $table->string('gender');
             $table->string('birthDate');
+            $table->string('profession');
             $table->string('contactNo');
-            $table->string('mailingAddress');
-            $table->string('permanentAddress');
-            $table->string('localGurdianName');
-            $table->string('localGuardianContactNo');
-            $table->string('photo');
+            $table->string('mailingAddress')->nullable();
+            $table->string('permanentAddress')->nullable();
+            $table->string('photo')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->tinyInteger('publish')->default(0);
@@ -42,6 +39,6 @@ class CreateAdmissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admissions');
+        Schema::dropIfExists('managements');
     }
 }

@@ -29,21 +29,24 @@
               </tr>
               </thead>
               <tbody>
-                  @foreach ($teachersTableData as $key => $teachersTableData)
+                  @foreach ($student as $key => $student)
                     <tr>
                         <td>
-                            <form action="/teacher/{{$teachersTableData->id}}" method="post" >
+
+                            <form action="/student/{{$student->id}}" method="post" >
                                 @csrf
                                 {{method_field('delete')}}
                                 <button class="btn btn-primary alert-danger fa fa-trash" onclick="return confirm('Are you sure?')" type="submit"></button>
-                                <a class="btn btn-primary alert-success fa fa-pencil" href="teacher/{{$teachersTableData->id}}/edit"></a>
+                                <a class="btn btn-primary alert-success fa fa-pencil" href="student/{{$student->id}}/edit"></a>
                             </form>
+
                         </td>
                         <td>{{$key+1}}</td>
-                        <td><a href="/teacher/{{$teachersTableData->id}}">{{$teachersTableData->name}}</a>
-                        </td>
-                        <td>{{$teachersTableData->mailingAddress}}</td>
-                        <td>{{$teachersTableData->contactNo}}</td>
+                        <td><a href="student/{{$student->id}}">{{$student->name}}</a></td>
+                        <td>{{$student->class}}</td>
+                        <td>{{$student->contactNo}}</td>
+                        <td>{{$student->email}}</td>
+
                     </tr>
                   @endforeach
               </tfoot>

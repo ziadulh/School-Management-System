@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="{{ asset('../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-
-
+<link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 @extends('admin.app')
 @section('content')
@@ -25,25 +23,24 @@
                 <th>Name</th>
                 <th>Address</th>
                 <th>Contact</th>
-                <th>Email</th>
               </tr>
               </thead>
               <tbody>
-                  @foreach ($teachersTableData as $key => $teachersTableData)
+                  @foreach ($management_data as $key => $management_data)
                     <tr>
                         <td>
-                            <form action="/teacher/{{$teachersTableData->id}}" method="post" >
+                            <form action="/managemnt/{{$management_data->id}}" method="post" >
                                 @csrf
                                 {{method_field('delete')}}
                                 <button class="btn btn-primary alert-danger fa fa-trash" onclick="return confirm('Are you sure?')" type="submit"></button>
-                                <a class="btn btn-primary alert-success fa fa-pencil" href="teacher/{{$teachersTableData->id}}/edit"></a>
+                                <a class="btn btn-primary alert-success fa fa-pencil" href="management/{{$management_data->id}}/edit"></a>
                             </form>
                         </td>
                         <td>{{$key+1}}</td>
-                        <td><a href="/teacher/{{$teachersTableData->id}}">{{$teachersTableData->name}}</a>
+                        <td><a href="/management/{{$management_data->id}}">{{$management_data->name}}</a>
                         </td>
-                        <td>{{$teachersTableData->mailingAddress}}</td>
-                        <td>{{$teachersTableData->contactNo}}</td>
+                        <td>{{$management_data->mailingAddress}}</td>
+                        <td>{{$management_data->contactNo}}</td>
                     </tr>
                   @endforeach
               </tfoot>

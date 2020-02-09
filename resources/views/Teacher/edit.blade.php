@@ -76,47 +76,79 @@
               </div>
 
               @foreach ($teacher_ifon_two_table_data as $key => $ak)
-                <label for="" style="color:blue">Degree {{$key+1}}</label>
-                <select type="text" class="form-control" name="degree[]">
-                    <option value="SSC" {{ ($ak->degree=="SSC")? "selected" : "" }}>SSC</option>
-                    <option value="HSC" {{ ($ak->degree=="HSC")? "selected" : "" }}>HSC</option>
-                    <option value="Bachelor" {{ ($ak->degree=="Bachelor")? "selected" : "" }}>Bachelor</option>
-                    <option value="Masters" {{ ($ak->degree=="Masters")? "selected" : "" }}>Masters</option>
-                    <option value="PhD" {{ ($ak->degree=="PhD")? "selected" : "" }}>PhD</option>
-                </select>
 
-                <label for="">Passing Year</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
+
+
+                <div class="form-group">
+                    <label for="">Educational History {{$key+1}}.</label><br>
+
+                    <div class="row" id="education">
+                        <div class="col-lg-1">
+                            <label for="degree">Degree</label>
+                            <select type="text" class="form-control" name="degree[]" id="degree">
+                                <option value="SSC" {{ ($ak->degree=="SSC")? "selected" : "" }}>SSC</option>
+                                <option value="HSC" {{ ($ak->degree=="HSC")? "selected" : "" }}>HSC</option>
+                                <option value="Bachelor" {{ ($ak->degree=="Bachelor")? "selected" : "" }}>Bachelor</option>
+                                <option value="Masters" {{ ($ak->degree=="Masters")? "selected" : "" }}>Master</option>
+                                <option value="PhD" {{ ($ak->degree=="PhD")? "selected" : "" }}>PhD</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <label for="passing_year">Passing Year</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right datepicker" name="passing_year[]" id="passing_year" value="{{$ak->passing_year}}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <label for="batch">Batch</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right datepicker"  name="batch[]" id="batch" value="{{$ak->batch}}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <label for="department">Department</label>
+                            <input type="text" class="form-control pull-right" name="department[]" id="department" value="{{$ak->department}}"><br>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <label for="organization_name">Organization Name</label>
+                            <input type="text" class="form-control pull-right" name="organization_name[]" value="{{$ak->organization_name}}" id="organization_name">
+                        </div>
+
+                        <div class="col-lg-1">
+                            <label for="result">Result</label>
+                            <input type="text" class="form-control pull-right" name="result[]" id="result" value="{{$ak->result}}">
+                        </div>
+
+                        <div class="col-lg-1">
+                            <label for="board">Board</label>
+                            <select type="text" class="form-control" name="board[]" id="board">
+                                <option value="Dhaka" {{ ($ak->board=="Dhaka")? "selected" : "" }}>Dhaka</option>
+                                <option value="Chittagong" {{ ($ak->board=="Chittagong")? "selected" : "" }}>Chittagong</option>
+                                <option value="Khulna" {{ ($ak->board=="Khulna")? "selected" : "" }}>Khulna</option>
+                                <option value="Sylhet" {{ ($ak->board=="Sylhet")? "selected" : "" }}>Sylhet</option>
+                                <option value="Rajshahi" {{ ($ak->board=="Rajshahi")? "selected" : "" }}>Rajshahi</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-1">
+                            <label for="">Add</label>
+                            <button type="button"  class=" form-control pull-right btn btn-block btn-danger fa fa-plus" id="expandbutton"></button>
+                        </div>
                     </div>
-                    <input type="text" class="form-control pull-right" name="passing_year[]" value="{{$ak->passing_year}}">
-                </div>
-                <label for="">Batch</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control pull-right" name="batch[]" value="{{$ak->batch}}">
+
                 </div>
 
-                <label for="">Department</label>
-                <input type="text" class="form-control pull-right" name="department[]" value="{{$ak->department}}"><br>
 
-                <label for="">Organization Name</label>
-                <input type="text" class="form-control pull-right" name="organization_name[]" value="{{$ak->organization_name}}"><br>
-
-                <label for="">Result</label>
-                <input type="text" class="form-control pull-right" name="result[]" value="{{$ak->result}}"><br>
-
-                <label for="">Board</label>
-                <select type="text" class="form-control" name="board[]">
-                    <option value="Dhaka" {{ ($ak->board=="Dhaka")? "selected" : "" }}>Dhaka</option>
-                    <option value="Chittagong" {{ ($ak->board=="Chittagong")? "selected" : "" }}>Chittagong</option>
-                    <option value="Khulna" {{ ($ak->board=="Khulna")? "selected" : "" }}>Khulna</option>
-                    <option value="Sylhet" {{ ($ak->board=="Sylhet")? "selected" : "" }}>Sylhet</option>
-                    <option value="Rajshahi" {{ ($ak->board=="Rajshahi")? "selected" : "" }}>Rajshahi</option>
-                </select><br>
 
 
               @endforeach

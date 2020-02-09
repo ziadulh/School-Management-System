@@ -57,6 +57,36 @@
           <li><a href="/teacher"><i class="fa fa-circle-o"></i>Teachers List</a></li>
         </ul>
       </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-edit"></i>
+          <span>Management</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/management/create"><i class="fa fa-circle-o"></i>Information Form</a></li>
+          <li><a href="/management"><i class="fa fa-circle-o"></i>Management List</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-edit"></i>
+          <span>Student</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/student"><i class="fa fa-circle-o"></i>Student List</a></li>
+          <li><a href="/management"><i class="fa fa-circle-o"></i>Management List</a></li>
+        </ul>
+      </li>
+
+
     </ul>
   </section>
   <!-- /.sidebar -->

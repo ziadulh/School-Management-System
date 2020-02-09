@@ -19,6 +19,13 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-
 Route::resource('/admission', 'admissionController');
+Route::get('/admission/{id}/delete', 'admissionController@destroy');
 Route::resource('/teacher', 'TeacherController');
+Route::resource('/management', 'ManagementController');
+
+Route::post('/confirmation/sendMail/{id}','sendMailController@send');
+Route::post('/confirmation/sendMail/','sendMailController@send');
+Route::get('/storeDataToStudentTable','sendMailController@store');
+
+Route::resource('/student','studentController');

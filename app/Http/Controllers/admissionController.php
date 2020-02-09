@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Students_log;
 
 
 use App\Admission;
@@ -42,7 +43,7 @@ class admissionController extends Controller
     {
 
         $request->validate([
-            "name" => 'required', "father" => 'required', "mother" => 'required', "class" => 'required', "gender" => 'required', "contactNo" => 'required', "birthDate" => 'required', "mailingAddress" => 'required', "permanentAddress" => 'required', "localGurdianName" => 'required', "localGuardianContactNo" => 'required',
+            "name" => 'required', "father" => 'required', "mother" => 'required', "class" => 'required',"email" => 'required|email', "gender" => 'required', "contactNo" => 'required', "birthDate" => 'required|date', "mailingAddress" => 'required', "permanentAddress" => 'required', "localGurdianName" => 'required', "localGuardianContactNo" => 'required',
 
         ]);
 
@@ -62,13 +63,14 @@ class admissionController extends Controller
         $name='';
         if($file = $request->file('photo')){
             $name = rand() .$file->getClientOriginalName();
-            $file->move(public_path('image/Student'), $name);}
+            $file->move(public_path('image/Admission'), $name);}
 
         $data = array(
             "name" => $request->input('name'),
             "father" => $request->input('father'),
             "mother" => $request->input('mother'),
             "class" => $request->input('class'),
+            "email" => $request->input('email'),
             "gender" => $request->input('gender'),
             "contactNo" => $request->input('contactNo'),
             "birthDate" => $request->input('birthDate'),
@@ -81,7 +83,16 @@ class admissionController extends Controller
             // "photo" => $request->file('photo')->storeAs('public/image',$fileNameToStore),
             "photo" => $name,
         );
-        Admission::create($data);
+        $adm_id = Admission::create($data);
+
+
+        // code to store data at student_log table
+        $data_to_store_at_student_log_table = array(
+            "act_type" => "admission","act_typ_auto_id" => $adm_id->id,"created_by" => $user_id,
+        );
+
+        Students_log::create($data_to_store_at_student_log_table);
+
 
         return redirect('/admission')->with('success','Form submited');
     }
@@ -141,17 +152,16 @@ class admissionController extends Controller
         $getData->updated_by = $user_id;
         if($file = $request->file('photo')){
             $albm = $getData->photo;
-            $filename = public_path() . '/image/Student/' . $albm;
+            $filename = public_path() . '/image/Admission/' . $albm;
 
             \File::delete($filename);
 
             $name = rand() .$file->getClientOriginalName();
-            $file->move(public_path('image/Student'), $name);
+            $file->move(public_path('image/Admission'), $name);
             $getData->photo = $name;
         }
 
         $getData->save();
-
 
         // return redirect('/admission/'.$id)->with('success','Form Updated');
         return redirect(route('admission.edit',$id))->with('success','Form Updated');
@@ -167,7 +177,7 @@ class admissionController extends Controller
     {
         $getData = Admission::find($id);
         $albm = $getData->photo;
-        $filename = public_path() . '/image/Student/' . $albm;
+        $filename = public_path() . '/image/Admission/' . $albm;
 
         \File::delete($filename);
 

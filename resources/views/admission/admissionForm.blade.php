@@ -18,23 +18,28 @@
                 @csrf
 
               <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" class="form-control" name="name">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name">
               </div>
 
               <div class="form-group">
-                <label for="">Father's Name</label>
-                <input type="text" class="form-control" name="father">
+                <label for="father">Father's Name</label>
+                <input type="text" class="form-control" name="father" id="father">
               </div>
 
               <div class="form-group">
-                <label for=""> Mother's Name</label>
-                <input type="text" class="form-control" name="mother">
+                <label for="mother"> Mother's Name</label>
+                <input type="text" class="form-control" name="mother" id="mother">
               </div>
 
               <div class="form-group">
-                <label for="">Class</label>
-                <input type="text" class="form-control" name="class">
+                <label for="class">Class</label>
+                <input type="text" class="form-control" name="class" id="class">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" id="email">
               </div>
 
               <div class="form-group">
@@ -53,38 +58,38 @@
               </div>
 
               <div class="form-group">
-                <label for="">Contact No.</label>
-                <input type="text" class="form-control" name="contactNo">
+                <label for="contactNo">Contact No.</label>
+                <input type="text" class="form-control" name="contactNo" id="contactNo">
               </div>
 
               <div class="form-group">
-                <label for="">Birth Day</label>
+                <label for="reservation">Birth Day</label>
                 <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="reservation" name="birthDate">
+                    <input type="date" class="form-control pull-right" id="reservation" name="birthDate" readonly>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="">Mailing Address</label>
-                <textarea type="text" class="form-control" rows="3" name="mailingAddress"></textarea>
+                <label for="mailingAddress">Mailing Address</label>
+                <textarea type="text" class="form-control" rows="3" name="mailingAddress" id="mailingAddress"></textarea>
               </div>
 
               <div class="form-group">
-                <label for="">Permanent Address</label>
-                <textarea type="text" class="form-control" rows="3" name="permanentAddress"></textarea>
+                <label for="permanentAddress">Permanent Address</label>
+                <textarea type="text" class="form-control" rows="3" name="permanentAddress" id="permanentAddress"></textarea>
               </div>
 
               <div class="form-group">
-                <label for="">Local Guardian Name</label>
-                <input type="text" class="form-control" name="localGurdianName">
+                <label for="localGurdianName">Local Guardian Name</label>
+                <input type="text" class="form-control" name="localGurdianName" id="localGurdianName">
               </div>
 
               <div class="form-group">
-                <label for="">Local Guardian Contact No.</label>
-                <input type="text" class="form-control" name="localGuardianContactNo">
+                <label for="localGuardianContactNo">Local Guardian Contact No.</label>
+                <input type="text" class="form-control" name="localGuardianContactNo" id="localGuardianContactNo">
               </div>
 
               <div class="form-group">

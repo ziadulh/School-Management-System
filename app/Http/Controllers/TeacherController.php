@@ -38,7 +38,7 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => 'required', "father" => 'required', "mother" => 'required', "gender" => 'required', "contactNo" => 'required', "birthDate" => 'required', "mailingAddress" => 'required', "permanentAddress" => 'required',
+            "name" => 'required', "father" => 'required', "mother" => 'required', "gender" => 'required', "contactNo" => 'required', "birthDate" => 'required|date', "mailingAddress" => 'required', "permanentAddress" => 'required',
 
         ]);
 
@@ -65,6 +65,11 @@ class TeacherController extends Controller
         );
 
         $getId = Teacher::create($data);
+
+        $request->validate([
+            "degree" => 'required', "passing_year" => 'required', "batch" => 'required', "department" => 'required', "organization_name" => 'required', "result" => 'required', "board" => 'required',
+
+        ]);
 
         $education_number = $request->input('board');
         foreach($education_number as $key => $en){
@@ -191,9 +196,6 @@ class TeacherController extends Controller
 
         $teachersTableData = Teacher::where('id',$id)->delete();
         $teacher_ifon_two_table_data = Teacher_info_two::where('teacher_id',$id)->delete();
-
-
-
 
         return redirect(route('teacher.index'))->with('success','Profile is successfully deleted');
     }

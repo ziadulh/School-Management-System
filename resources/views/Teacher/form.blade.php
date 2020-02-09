@@ -16,19 +16,21 @@
       <div class="box-body">
           @csrf
 
+
+
         <div class="form-group">
-          <label for="">Name</label>
-          <input type="text" class="form-control" name="name">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" id="name">
         </div>
 
         <div class="form-group">
-          <label for="">Father's Name</label>
-          <input type="text" class="form-control" name="father">
+          <label for="father">Father's Name</label>
+          <input type="text" class="form-control" name="father" id="father">
         </div>
 
         <div class="form-group">
-          <label for=""> Mother's Name</label>
-          <input type="text" class="form-control" name="mother">
+          <label for="mother"> Mother's Name</label>
+          <input type="text" class="form-control" name="mother" id="mother">
         </div>
 
         <div class="form-group">
@@ -47,86 +49,102 @@
         </div>
 
         <div class="form-group">
-          <label for="">Contact No.</label>
-          <input type="text" class="form-control" name="contactNo">
+          <label for="contactNo">Contact No.</label>
+          <input type="text" class="form-control" name="contactNo" id="contactNo">
         </div>
 
         <div class="form-group">
-          <label for="">Birth Day</label>
+          <label for="birthDate">Birth Day</label>
           <div class="input-group">
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="reservation" name="birthDate">
+              <input type="text" class="form-control pull-right datepicker" name="birthDate" id="birthDate" readonly>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="">Mailing Address</label>
-          <textarea type="text" class="form-control" rows="3" name="mailingAddress"></textarea>
+          <label for="mailingAddress">Mailing Address</label>
+          <textarea type="text" class="form-control" rows="3" name="mailingAddress" id="mailingAddress"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="">Permanent Address</label>
-          <textarea type="text" class="form-control" rows="3" name="permanentAddress"></textarea>
+          <label for="permanentAddress">Permanent Address</label>
+          <textarea type="text" class="form-control" rows="3" name="permanentAddress" id="permanentAddress"></textarea>
         </div>
 
-        <br><br><div class="form-group" id="education">
-          <label for="">Educational Quelification</label><br>
+        <br><br>
+        <div class="form-group">
+            <label for="">Educational History 1.</label><br>
 
-          <label for="">Degree</label>
-          <select type="text" class="form-control" name="degree[]">
-              <option value="SSC">SSC</option>
-              <option value="HSC">HSC</option>
-              <option value="Bachelor">Bachelor</option>
-              <option value="Master">Master</option>
-              <option value="PhD">PhD</option>
-          </select>
+            <div class="row" id="education">
+                <div class="col-lg-1">
+                    <label for="degree">Degree</label>
+                    <select type="text" class="form-control" name="degree[]" id="degree">
+                        <option value="SSC">SSC</option>
+                        <option value="HSC">HSC</option>
+                        <option value="Bachelor">Bachelor</option>
+                        <option value="Masters">Master</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+                </div>
 
-          <label for="">Passing Year</label>
-          <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <input type="text" class="form-control pull-right" name="passing_year[]">
-          </div>
-          <label for="">Batch</label>
-          <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <input type="text" class="form-control pull-right"  name="batch[]">
-          </div>
+                <div class="col-lg-2">
+                    <label for="passing_year">Passing Year</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right datepicker" name="passing_year[]" id="passing_year" readonly>
+                    </div>
+                </div>
 
-          <label for="">Department</label>
-          <input type="text" class="form-control pull-right" name="department[]"><br>
+                <div class="col-lg-2">
+                    <label for="batch">Batch</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right datepicker"  name="batch[]" id="batch" readonly>
+                    </div>
+                </div>
 
-          <label for="">Organization Name</label>
-          <input type="text" class="form-control pull-right" name="organization_name[]"><br>
+                <div class="col-lg-2">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control pull-right" name="department[]" id="department"><br>
+                </div>
 
-          <label for="">Result</label>
-          <input type="text" class="form-control pull-right" name="result[]"><br>
+                <div class="col-lg-2">
+                    <label for="organization_name">Organization Name</label>
+                    <input type="text" class="form-control pull-right" name="organization_name[]" id="organization_name">
+                </div>
 
-          <label for="">Board</label>
-          <select type="text" class="form-control" name="board[]">
-              <option value="Dhaka">Dhaka</option>
-              <option value="Chittagong">Chittagong</option>
-              <option value="Khulna">Khulna</option>
-              <option value="Sylhet">Sylhet</option>
-              <option value="Rajshahi">Rajshahi</option>
-          </select><br>
+                <div class="col-lg-1">
+                    <label for="result">Result</label>
+                    <input type="text" class="form-control pull-right" name="result[]" id="result">
+                </div>
+
+                <div class="col-lg-1">
+                    <label for="board">Board</label>
+                    <select type="text" class="form-control" name="board[]" id="board">
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-1">
+                    <label for="">Add</label>
+                    <button type="button"  class=" form-control pull-right btn btn-block btn-danger fa fa-plus" id="expandbutton"></button>
+                </div>
+            </div>
+
         </div>
 
         <div id="expand">
-
         </div>
-
-        {{-- <div class="form-group" id="field">
-          <label for="">Enter your S.S.C Information</label>
-          <textarea type="text" class="form-control" rows="3" name="permanentAddress"></textarea>
-        </div><br> --}}
-
-        <button type="button" class="btn btn-block btn-default" id="expandbutton">Click here to add more field</button><br><br>
 
         <div class="form-group">
           <label for="exampleInputFile">Upload a Photo</label>
@@ -154,17 +172,23 @@
 
 @section('jsscript')
 <script>
-    var track = 1;
 
+    var track = 2;
 
     $(document).ready( function(){
-      load();
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd'
+        });
+
+
+        load();
     });
+
+
 
     function load(){
       $("#expandbutton").click(function(){
-
-          if(track <= 6){
+          if(track <= 3){
             createField();
             track++;
           }
@@ -174,51 +198,86 @@
     function createField(){
         var educationField = "";
         educationField =
-        "<div class='form-group'>"+
-            "<label for=''>Educational Quelification" + "</label><br>"+
 
-            "<label for=''>Degree</label>"+
-            "<select type='text' class='form-control' name='degree[]'>"+
-                "<option value='SSC'>SSC</option>"+
-                "<option value='HSC'>HSC</option>"+
-                "<option value='Bachelor'>Bachelor</option>"+
-                "<option value='Masters'>Master</option>"+
-                "<option value='PhD'>PhD</option>"+
-            "</select>"+
+        "<div class='form-group' id='education'>"+
+            "<label for=''>Educational History "+ track + "."+"</label>"+"<br>"+
 
-            "<label for=''>Passing Year</label>"+
-            "<div class='input-group'>"+
-                "<div class='input-group-addon'>"+
-                  "<i class='fa fa-calendar'></i>"+
+            "<div class='row'>"+
+                "<div class='col-lg-1'>"+
+                    "<label for='degree'>Degree"+"</label>"+
+                    "<select type='text' class='form-control' name='degree[]' id='degree'>"+
+                        "<option value='SSC'>SSC</option>"+
+                        "<option value='HSC'>HSC</option>"+
+                        "<option value='Bachelor'>Bachelor</option>"+
+                        "<option value='Master'>Master</option>"+
+                        "<option value='PhD'>PhD</option>"+
+                    "</select>"+
                 "</div>"+
-                "<input type='text' class='form-control pull-right' name='passing_year[]'>"+
-            "</div>"+
 
-            "<label for=''>Batch</label>"+
-            "<div class='input-group'>"+
-                "<div class='input-group-addon'>"+
-                  "<i class='fa fa-calendar'></i>"+
+                "<div class='col-lg-2'>"+
+                    "<label for='passing_year'>Passing Year"+"</label>"+
+                    "<div class='input-group'>"+
+                        "<div class='input-group-addon'>"+
+                            "<i class='fa fa-calendar'>"+"</i>"+
+                        "</div>"+
+                        "<input type='text' class='form-control pull-right datepicker' name='passing_year[]' id='passing_year' readonly>"+
+                    "</div>"+
                 "</div>"+
-                "<input type='text' class='form-control pull-right' name='batch[]'>"+
+
+                "<div class='col-lg-2'>"+
+                    "<label for='batch'>Batch"+"</label>"+
+                    "<div class='input-group'>"+
+                        "<div class='input-group-addon'>"+
+                            "<i class='fa fa-calendar'>"+"</i>"+
+                        "</div>"+
+                        "<input type='text' class='form-control pull-right datepicker'  name='batch[]' id='batch' readonly>"+
+                    "</div>"+
+                "</div>"+
+
+                "<div class='col-lg-2'>"+
+                    "<label for='department'>Department"+"</label>"+
+                    "<input type='text' class='form-control pull-right' name='department[]' id='department'>"+
+                "</div>"+
+
+                "<div class='col-lg-2'>"+
+                    "<label for='organization_name'>Organization Name"+"</label>"+
+                    "<input type='text' class='form-control pull-right' name='organization_name[]' id='organization_name'>"+
+                "</div>"+
+
+                "<div class='col-lg-1'>"+
+                    "<label for='result'>Result"+"</label>"+
+                    "<input type='text' class='form-control pull-right' name='result[]' id='result'>"+
+                "</div>"+
+
+                "<div class='col-lg-1'>"+
+                    "<label for='board'>Board"+"</label>"+
+                    "<select type='text' class='form-control' name='board[]' id='board'>"+
+                        "<option value='Dhaka'>Dhaka"+"</option>"+
+                        "<option value='Chittagong'>Chittagong"+"</option>"+
+                        "<option value='Khulna'>Khulna"+"</option>"+
+                        "<option value='Sylhet'>Sylhet"+"</option>"+
+                        "<option value='Rajshahi'>Rajshahi"+"</option>"+
+                    "</select>"+
+                "</div>"+
+
+                "<div class='col-lg-1'>"+
+                    "<label for=''>Remove"+"</label>"+
+                    "<button type='button'  class=' form-control pull-right btn btn-block btn-danger fa fa-minus' id='remove'>"+"</button>"+
+                "</div>"+
+
+
             "</div>"+
-            "<label for=''>Department</label>"+
-            "<input type='text' class='form-control pull-right'name='department[]'><br>"+
-
-            "<label for=''>Organization Name</label>"+
-            "<input type='text' class='form-control pull-right'name='organization_name[]'><br>"+
-
-            "<label for=''>Result</label>"+
-            "<input type='text' class='form-control pull-right'name='result[]'><br>"+
-
-            "<label for=''>Board</label>"+
-            "<select type='text' class='form-control' name='board[]'>"+
-                "<option value='Dhaka'>Dhaka</option>"+
-                "<option value='Chittagong'>Chittagong</option>"+
-                "<option value='Khulna'>Khulna</option>"+
-                "<option value='Sylhet'>Sylhet</option>"+
-                "<option value='Rajshahi'>Rajshahi</option>"+
-            "</select><br>"+
         "</div>";
+
+        $(document).ready( function(){
+            $(".datepicker").datepicker({
+                format: 'yyyy-mm-dd'
+            });
+
+            $("#education").on('click','#remove',function(){
+                $(this).expand('div').remove();
+            });
+        });
 
         $("#expand").append(educationField);
     }
