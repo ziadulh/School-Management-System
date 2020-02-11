@@ -29,3 +29,8 @@ Route::post('/confirmation/sendMail/','sendMailController@send');
 Route::get('/storeDataToStudentTable','sendMailController@store');
 
 Route::resource('/student','studentController');
+Route::resource('/resultGenerate','GenerateResultController');
+
+
+Route::get('/myform', array('as' => 'myform', 'uses' => 'GenerateResultController@testView'));
+Route::get('/myform/ajex/{id}', array('as' => 'myform.ajex', 'uses' => 'GenerateResultController@ajexController'));
